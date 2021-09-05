@@ -11,11 +11,12 @@ namespace Ryd_op
     {
         static void Main(string[] args)
         {
+            //looping so an user can use multiple services
             while (true)
             {
                 int choice = 0;
                 //Printing a menu for the user
-                Console.WriteLine("Chose a service:" + "\n\n1. Show harddisk metadata" + "\n2. Show harddisk serial number" + "\n3. Show cpu usage" + "\n4. Show memory info" + "\n5. Show system info" + "\n6. Boot device test" + "\n7. List all windows services" + "\n8. exit");
+                Console.Write("Chose a service:" + "\n\n1. Show harddisk metadata" + "\n2. Show harddisk serial number" + "\n3. Show cpu usage" + "\n4. Show memory info" + "\n5. Show system info" + "\n6. Boot device test" + "\n7. List all windows services" + "\n8. exit" + "\n\nEnter your choice: ");
                 //Catches if the user inserts anything else than a number
                 try
                 {
@@ -34,33 +35,38 @@ namespace Ryd_op
                 switch (choice)
                 {
                     case 1:
-                        Harddisk.GetDiskMetadata();
+                        PrintToConsole(Harddisk.GetDiskMetadata());
                         break;
                     case 2:
-                        Harddisk.GetHardDiskSerialNumber();
+                        PrintToConsole(Harddisk.GetHardDiskSerialNumber());
                         break;
                     case 3:
-                        Processor.GetCpuUsage();
+                        PrintToConsole(Processor.GetCpuUsage());
                         break;
                     case 4:
-                        Memory.GetMemoryInfo();
+                        PrintToConsole(Memory.GetMemoryInfo());
                         break;
                     case 5:
-                        System.GetSystemInfo();
+                        PrintToConsole(System.GetSystemInfo());
                         break;
                     case 6:
-                        System.BootDeviceTest();
+                        PrintToConsole(System.BootDeviceTest());
                         break;
                     case 7:
-                        WinServices.ListAllServices();
+                        PrintToConsole(WinServices.ListAllServices());
                         break;
                 }
                 //Makes the user press any key to continue
                 Console.WriteLine("Press any key to continue");
                 Console.ReadKey();
-
+                //clears the console
                 Console.Clear();
             }
-        } //Slut main
+        } 
+        
+        public static void PrintToConsole(string textToPrint)
+        {
+            Console.WriteLine(textToPrint);
+        }
     }
 }

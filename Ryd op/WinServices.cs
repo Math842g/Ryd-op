@@ -10,12 +10,11 @@ namespace Ryd_op
     class WinServices
     {
         #region ListAllServices
-        public static void ListAllServices()
+        public static string ListAllServices()
         {
             ManagementObjectSearcher windowsServicesSearcher = new ManagementObjectSearcher("root\\cimv2", "select * from Win32_Service");
             ManagementObjectCollection objectCollection = windowsServicesSearcher.Get();
-
-            Console.WriteLine("There are {0} Windows services: ", objectCollection.Count);
+            string serviceInfo = "There are" + objectCollection.Count + "Windows services: ";
 
             foreach (ManagementObject windowsService in objectCollection)
             {
@@ -24,12 +23,12 @@ namespace Ryd_op
                 {
                     if (serviceProperty.Value != null)
                     {
-                        Console.WriteLine("Windows service property name: {0}", serviceProperty.Name);
-                        Console.WriteLine("Windows service property value: {0}", serviceProperty.Value);
+                        serviceInfo += "\nmWindows service property name: " + serviceProperty.Name;
+                        serviceInfo += "\nWindows service property value: " + serviceProperty.Value;
                     }
                 }
-                Console.WriteLine("---------------------------------------");
             }
+            return serviceInfo;
         }
         #endregion
     }

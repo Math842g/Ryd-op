@@ -10,7 +10,7 @@ namespace Ryd_op
     class Harddisk
     {
         #region GetDiskMetaData
-        public static void GetDiskMetadata()
+        public static string GetDiskMetadata()
         {
 
             global::System.Management.ManagementScope managementScope = new global::System.Management.ManagementScope();
@@ -20,33 +20,28 @@ namespace Ryd_op
             ManagementObjectSearcher managementObjectSearcher = new ManagementObjectSearcher(managementScope, objectQuery);
 
             ManagementObjectCollection managementObjectCollection = managementObjectSearcher.Get();
+            string diskMetaData = "";
 
             foreach (ManagementObject managementObject in managementObjectCollection)
 
             {
-
-                Console.WriteLine("Disk Name : " + managementObject["Name"].ToString());
-
-                Console.WriteLine("FreeSpace: " + managementObject["FreeSpace"].ToString());
-
-                Console.WriteLine("Disk Size: " + managementObject["Size"].ToString());
-
-                Console.WriteLine("---------------------------------------------------");
-
+                diskMetaData = "Disk Name : " + managementObject["Name"].ToString();
+                diskMetaData += "\nFreeSpace: " + managementObject["FreeSpace"].ToString();
+                diskMetaData += "\nDisk Size: " + managementObject["Size"].ToString();
+                diskMetaData += "\n---------------------------------------------------";
             }
+            return diskMetaData;
         }
         #endregion
         #region GetHardDidkSerialNumber
         public static string GetHardDiskSerialNumber(string drive = "C")
 
         {
-
             ManagementObject managementObject = new ManagementObject("Win32_LogicalDisk.DeviceID=\"" + drive + ":\"");
 
             managementObject.Get();
-            Console.WriteLine(managementObject["VolumeSerialNumber"].ToString());
-
-            return managementObject["VolumeSerialNumber"].ToString();
+            string hardDiskSerialNumber = "Harddisk serial number: " + managementObject["VolumeSerialNumber"].ToString();
+            return hardDiskSerialNumber;
 
         }
         #endregion
