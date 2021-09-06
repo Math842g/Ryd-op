@@ -10,7 +10,7 @@ namespace Ryd_op
     class System
     {
         #region GetSystemInfo
-        public static string GetSystemInfo()
+        public string GetSystemInfo()
         {
             ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
@@ -27,9 +27,9 @@ namespace Ryd_op
         }
         #endregion
         #region BootDeviceTest
-        public static string BootDeviceTest()
+        public string GetBootDevice()
         {
-            string bootDeviceInfo = "starting test";
+            string bootDevice = "starting test";
             ManagementScope scope = new ManagementScope("\\\\.\\ROOT\\cimv2");
 
             //create object query
@@ -46,10 +46,10 @@ namespace Ryd_op
             foreach (ManagementObject m in queryCollection)
             {
                 // access properties of the WMI object
-                bootDeviceInfo += "\nBootDevice : " + m["BootDevice"];
+                bootDevice += "\nBootDevice : " + m["BootDevice"];
             }
-            bootDeviceInfo += "\nTest ended";
-            return bootDeviceInfo;
+            bootDevice += "\nTest ended";
+            return bootDevice;
         }
         #endregion
     }

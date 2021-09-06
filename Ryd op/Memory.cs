@@ -10,7 +10,7 @@ namespace Ryd_op
     class Memory
     {
         #region GetMemoryInfo
-        public static string GetMemoryInfo()
+        public string GetMemoryInfo()
         {
             ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);

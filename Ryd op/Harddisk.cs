@@ -10,9 +10,8 @@ namespace Ryd_op
     class Harddisk
     {
         #region GetDiskMetaData
-        public static string GetDiskMetadata()
+        public string GetDiskMetadata()
         {
-
             global::System.Management.ManagementScope managementScope = new global::System.Management.ManagementScope();
 
             global::System.Management.ObjectQuery objectQuery = new global::System.Management.ObjectQuery("select FreeSpace,Size,Name from Win32_LogicalDisk where DriveType=3");
@@ -34,7 +33,7 @@ namespace Ryd_op
         }
         #endregion
         #region GetHardDidkSerialNumber
-        public static string GetHardDiskSerialNumber(string drive = "C")
+        public string GetHardDiskSerialNumber(string drive = "C")
 
         {
             ManagementObject managementObject = new ManagementObject("Win32_LogicalDisk.DeviceID=\"" + drive + ":\"");

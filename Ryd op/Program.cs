@@ -11,10 +11,12 @@ namespace Ryd_op
     {
         static void Main(string[] args)
         {
+            int choice = 0;
+            Logic logic = new Logic();
+
             //looping so an user can use multiple services
-            while (true)
+            do
             {
-                int choice = 0;
                 //Printing a menu for the user
                 Console.Write("Chose a service:" + "\n\n1. Show harddisk metadata" + "\n2. Show harddisk serial number" + "\n3. Show cpu usage" + "\n4. Show memory info" + "\n5. Show system info" + "\n6. Boot device test" + "\n7. List all windows services" + "\n8. exit" + "\n\nEnter your choice: ");
                 //Catches if the user inserts anything else than a number
@@ -26,34 +28,29 @@ namespace Ryd_op
                 {
                     Console.WriteLine("You have to insert a number");
                 }
-                //Breaks the loop if the user inserts 8 in the console
-                if(choice == 8)
-                {
-                    break;
-                }
                 //Picking a case depending on what the user inputs
                 switch (choice)
                 {
                     case 1:
-                        PrintToConsole(Harddisk.GetDiskMetadata());
+                        PrintToConsole(logic.GetDiskMetadata());
                         break;
                     case 2:
-                        PrintToConsole(Harddisk.GetHardDiskSerialNumber());
+                        PrintToConsole(logic.GetHardDiskSerialNumber());
                         break;
                     case 3:
-                        PrintToConsole(Processor.GetCpuUsage());
+                        PrintToConsole(logic.GetCpuUsage());
                         break;
                     case 4:
-                        PrintToConsole(Memory.GetMemoryInfo());
+                        PrintToConsole(logic.GetMemoryInfo());
                         break;
                     case 5:
-                        PrintToConsole(System.GetSystemInfo());
+                        PrintToConsole(logic.GetSystemInfo());
                         break;
                     case 6:
-                        PrintToConsole(System.BootDeviceTest());
+                        PrintToConsole(logic.GetBootDevice());
                         break;
                     case 7:
-                        PrintToConsole(WinServices.ListAllServices());
+                        PrintToConsole(logic.GetAllServices());
                         break;
                 }
                 //Makes the user press any key to continue
@@ -61,7 +58,7 @@ namespace Ryd_op
                 Console.ReadKey();
                 //clears the console
                 Console.Clear();
-            }
+            } while (choice != 8);
         } 
         
         public static void PrintToConsole(string textToPrint)

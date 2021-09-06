@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="System.cs" />
     <Compile Include="Harddisk.cs" />

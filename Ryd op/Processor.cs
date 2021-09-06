@@ -10,7 +10,7 @@ namespace Ryd_op
     class Processor
     {
         #region GetCpuUsage
-        public static string GetCpuUsage()
+        public string GetCpuUsage()
         {
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from Win32_PerfFormattedData_PerfOS_Processor");
             string cpuUsage = "";
