@@ -9,16 +9,16 @@ namespace Ryd_op
 {
     class Processor
     {
-        #region GetCpuUsage
-        public string GetCpuUsage()
+        #region CpuUsage
+        public string CpuUsage()
         {
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from Win32_PerfFormattedData_PerfOS_Processor");
             string cpuUsage = "";
 
             foreach (ManagementObject obj in searcher.Get())
             {
-                var usage = obj["PercentProcessorTime"];
-                var name = obj["Name"];
+                var usage = obj["PercentProcessorTime"].ToString();
+                var name = obj["Name"].ToString();
                 cpuUsage += name + " : " + usage;
                 cpuUsage += "\nCPU ";
             }

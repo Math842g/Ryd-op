@@ -9,8 +9,8 @@ namespace Ryd_op
 {
     class Memory
     {
-        #region GetMemoryInfo
-        public string GetMemoryInfo()
+        #region MemoryInfo
+        public string MemoryInfo()
         {
             ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
@@ -19,10 +19,10 @@ namespace Ryd_op
 
             foreach (ManagementObject result in results)
             {
-                memoryInfo = "Total Visible Memory: " + result["TotalVisibleMemorySize"] + "KB";
-                memoryInfo += "\nFree Physical Memory: " + result["FreePhysicalMemory"] + "KB";
-                memoryInfo += "\nTotal Virtual Memory: " + result["TotalVirtualMemorySize"] + "KB";
-                memoryInfo += "\nFree Virtual Memory: " + result["FreeVirtualMemory"] + "KB";
+                memoryInfo = "Total Visible Memory: " + result["TotalVisibleMemorySize"].ToString() + "KB";
+                memoryInfo += "\nFree Physical Memory: " + result["FreePhysicalMemory"].ToString() + "KB";
+                memoryInfo += "\nTotal Virtual Memory: " + result["TotalVirtualMemorySize"].ToString() + "KB";
+                memoryInfo += "\nFree Virtual Memory: " + result["FreeVirtualMemory"].ToString() + "KB";
             }
             return memoryInfo;
         }

@@ -32,25 +32,25 @@ namespace Ryd_op
                 switch (choice)
                 {
                     case 1:
-                        PrintToConsole(logic.GetDiskMetadata());
+                        PrintToConsole(logic.GetDiskMetadata().DiskMetadata());
                         break;
                     case 2:
-                        PrintToConsole(logic.GetHardDiskSerialNumber());
+                        PrintToConsole(logic.GetHardDiskSerialNumber().HardDiskSerialNumber());
                         break;
                     case 3:
-                        PrintToConsole(logic.GetCpuUsage());
+                        PrintToConsole(logic.GetCpuUsage().CpuUsage());
                         break;
                     case 4:
-                        PrintToConsole(logic.GetMemoryInfo());
+                        PrintToConsole(logic.GetMemoryInfo().MemoryInfo());
                         break;
                     case 5:
-                        PrintToConsole(logic.GetSystemInfo());
+                        PrintToConsole(logic.GetSystemInfo().SystemInfo());
                         break;
                     case 6:
-                        PrintToConsole(logic.GetBootDevice());
+                        PrintToConsole(logic.GetBootDevice().BootDevice());
                         break;
                     case 7:
-                        PrintToConsole(logic.GetAllServices());
+                        PrintToConsole(logic.GetAllServices().AllServices());
                         break;
                 }
                 //Makes the user press any key to continue

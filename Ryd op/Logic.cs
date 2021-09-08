@@ -9,52 +9,52 @@ namespace Ryd_op
     class Logic
     {
         #region DiskMetaData
-        public string GetDiskMetadata()
+        public Harddisk GetDiskMetadata()
         {
             Harddisk diskMetaData = new Harddisk();
-            return diskMetaData.GetDiskMetadata();
+            return diskMetaData;
         }
         #endregion
         #region HardDiskSerialNumber
-        public string GetHardDiskSerialNumber()
+        public Harddisk GetHardDiskSerialNumber()
         {
             Harddisk hardDiskSerialNumber = new Harddisk();
-            return hardDiskSerialNumber.GetDiskMetadata();
+            return hardDiskSerialNumber;
         }
         #endregion
         #region GetCpuUsage
-        public string GetCpuUsage()
+        public Processor GetCpuUsage()
         {
             Processor cpuUsage = new Processor();
-            return cpuUsage.GetCpuUsage();
+            return cpuUsage;
         }
         #endregion
         #region GetSystemInfo
-        public string GetSystemInfo()
+        public System GetSystemInfo()
         {
             System systemInfo = new System();
-            return systemInfo.GetSystemInfo();
+            return systemInfo;
         }
         #endregion
         #region GetBootDevice
-        public string GetBootDevice()
+        public System GetBootDevice()
         {
             System bootDevice = new System();
-            return bootDevice.GetBootDevice();
+            return bootDevice;
         }
         #endregion
         #region GetMemoryInfo
-        public string GetMemoryInfo()
+        public Memory GetMemoryInfo()
         {
             Memory memoryinfo = new Memory();
-            return memoryinfo.GetMemoryInfo();
+            return memoryinfo;
         }
         #endregion
         #region GetAllServices
-        public string GetAllServices()
+        public WinServices GetAllServices()
         {
             WinServices allServices= new WinServices();
-            return allServices.GetAllServices();
+            return allServices;
         }
         #endregion
     }

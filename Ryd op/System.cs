@@ -9,8 +9,8 @@ namespace Ryd_op
 {
     class System
     {
-        #region GetSystemInfo
-        public string GetSystemInfo()
+        #region SystemInfo
+        public string SystemInfo()
         {
             ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
@@ -19,15 +19,15 @@ namespace Ryd_op
 
             foreach (ManagementObject result in results)
             {
-                systemInfo = "User:\t" + result["RegisteredUser"];
-                systemInfo += "\nOrg.:\t" + result["Organization"];
-                systemInfo += "\nO/S :\t" + result["Name"];
+                systemInfo = "User:\t" + result["RegisteredUser"].ToString();
+                systemInfo += "\nOrg.:\t" + result["Organization"].ToString();
+                systemInfo += "\nO/S :\t" + result["Name"].ToString();
             }
             return systemInfo;
         }
         #endregion
         #region BootDeviceTest
-        public string GetBootDevice()
+        public string BootDevice()
         {
             string bootDevice = "starting test";
             ManagementScope scope = new ManagementScope("\\\\.\\ROOT\\cimv2");
@@ -46,7 +46,7 @@ namespace Ryd_op
             foreach (ManagementObject m in queryCollection)
             {
                 // access properties of the WMI object
-                bootDevice += "\nBootDevice : " + m["BootDevice"];
+                bootDevice += "\nBootDevice : " + m["BootDevice"].ToString();
             }
             bootDevice += "\nTest ended";
             return bootDevice;
