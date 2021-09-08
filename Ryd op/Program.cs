@@ -11,9 +11,18 @@ namespace Ryd_op
     {
         static void Main(string[] args)
         {
+            //instantiating object
+            Program p = new Program();
+            //running userinterface method
+            p.UserInterface();
+        }
+        #region Userinterface
+        public void UserInterface()
+        {
+            //Creates int to store users choice
             int choice = 0;
+            //instantiating object
             Logic logic = new Logic();
-
             //looping so an user can use multiple services
             do
             {
@@ -58,12 +67,16 @@ namespace Ryd_op
                 Console.ReadKey();
                 //clears the console
                 Console.Clear();
+                //Countinues the loop if the user didnt insert 8
             } while (choice != 8);
-        } 
-        
-        public static void PrintToConsole(string textToPrint)
+
+        }
+        #endregion
+        #region PrintToConsole
+        public void PrintToConsole(string textToPrint)
         {
             Console.WriteLine(textToPrint);
         }
+        #endregion
     }
 }
